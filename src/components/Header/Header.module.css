@@ -1,0 +1,215 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--header-h);
+  background: var(--ink);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  border-bottom-color: var(--line);
+}
+
+.inner {
+  height: 100%;
+  width: min(100% - 1.5rem, var(--max));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.logo small {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border: 1px solid var(--stamp);
+  color: var(--paper);
+  font-size: 0.78rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav a {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.navPhone {
+  display: none;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phone {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.phone:hover {
+  color: var(--brass);
+}
+
+.book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0 0.9rem;
+  background: var(--stamp);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.book:hover {
+  background: var(--stamp-deep);
+}
+
+.burger {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+  align-items: center;
+  justify-content: center;
+}
+
+.burgerLines,
+.burgerLines::before,
+.burgerLines::after {
+  display: block;
+  width: 1rem;
+  height: 1px;
+  background: currentColor;
+  position: relative;
+}
+
+.burgerLines::before,
+.burgerLines::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.burgerLines::before {
+  top: -5px;
+}
+
+.burgerLines::after {
+  top: 5px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 980px) {
+  .phone {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
+  .nav {
+    position: fixed;
+    z-index: 30;
+    inset: var(--header-h) 0 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+    background: var(--ink);
+    transform: translateX(100%);
+    transition: transform 0.35s var(--ease);
+    overflow: auto;
+  }
+
+  .nav.open {
+    transform: none;
+  }
+
+  .nav a {
+    width: 100%;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .navPhone {
+    display: block;
+    margin-top: 0.75rem;
+    border-bottom: 0;
+    color: var(--brass) !important;
+    font-family: var(--font-body) !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .inner {
+    width: min(100% - 3rem, var(--max));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
+  }
+}

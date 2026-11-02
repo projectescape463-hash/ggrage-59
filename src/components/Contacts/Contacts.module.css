@@ -1,0 +1,39 @@
+.section {
+  background: var(--paper-2);
+  color: var(--ink-text);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.grid h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.15rem;
+}
+
+.grid p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.grid a {
+  font-weight: 700;
+  border-bottom: 1px solid var(--stamp);
+}
+
+.note {
+  margin-top: 0.4rem !important;
+  color: var(--ink-muted);
+  font-size: 0.88rem !important;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
